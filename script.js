@@ -30,18 +30,26 @@ sortPriceDec.addEventListener("click",sortDecreasing);
 showStocksBtn.addEventListener("click", showStocks);
 searchBtn.addEventListener("click", searchItem);
 
+let id = document.getElementById("Id");
+let image = document.getElementById("Image");
+let name = document.getElementById("Name");
+let price = document.getElementById("Price");
+let rating = document.getElementById("Rating");
+let stock = document.getElementById("Stock");
+
 function loadData(data) {
     products.innerHTML="";
     data.map((item) => {
-        let lItem = document.createElement("tr");
-        lItem.innerHTML=`
+        let row = document.createElement("tr");
+        row.innerHTML=`
           <td>  ${item.id} <td>
            <td> <img src="${item.img}" height="80" width="100"  alt=""/> <td>
            <td> ${item.name} <td>
            <td> ${item.price} <td>
            <td> ${item.rating} <td>
            <td> ${item.inStock ? "In Stock": "Out of Stock"}<td> `
-        products.append(lItem);
+        products.append(row);
+
     })
 }
 
